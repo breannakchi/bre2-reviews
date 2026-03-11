@@ -1,119 +1,247 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>BRE² Reviews</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BRE² Reviews</title>
+  <style>
+    :root {
+      --bg: #f7f4ef;
+      --card: rgba(255, 255, 255, 0.88);
+      --text: #1d1d1f;
+      --muted: #6b6b73;
+      --accent: #ff5a36;
+      --border: rgba(29, 29, 31, 0.08);
+      --shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+      --radius: 22px;
+    }
 
-<style>
+    * {
+      box-sizing: border-box;
+    }
 
-body{
-font-family: Arial, Helvetica, sans-serif;
-background:#fafafa;
-margin:0;
-padding:60px;
-}
+    body {
+      margin: 0;
+      font-family: Inter, Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(255, 90, 54, 0.14), transparent 28%),
+        linear-gradient(180deg, #fffaf6 0%, var(--bg) 100%);
+      min-height: 100vh;
+      padding: 48px 20px 60px;
+    }
 
-.container{
-max-width:900px;
-margin:auto;
-}
+    .container {
+      max-width: 950px;
+      margin: 0 auto;
+    }
 
-h1{
-font-size:48px;
-margin-bottom:10px;
-}
+    .hero {
+      text-align: center;
+      margin-bottom: 42px;
+    }
 
-.subtitle{
-color:#777;
-margin-bottom:50px;
-}
+    .logo {
+      width: 130px;
+      max-width: 100%;
+      display: block;
+      margin: 0 auto 20px;
+    }
 
-.review{
-background:white;
-padding:30px;
-margin-bottom:25px;
-border-radius:10px;
-box-shadow:0 5px 20px rgba(0,0,0,0.05);
-}
+    h1 {
+      margin: 0 0 10px;
+      font-size: clamp(2.3rem, 5vw, 4rem);
+      letter-spacing: -0.04em;
+    }
 
-.stars{
-color:#ff492c;
-font-size:18px;
-margin-bottom:10px;
-}
+    .subtitle {
+      margin: 0 auto;
+      max-width: 650px;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.65;
+    }
 
-.quote{
-font-size:18px;
-line-height:1.6;
-margin-bottom:15px;
-}
+    .summary-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 26px;
+      margin-bottom: 22px;
+      text-align: center;
+    }
 
-.author{
-font-weight:bold;
-color:#444;
-}
+    .summary-stars {
+      color: var(--accent);
+      font-size: 22px;
+      letter-spacing: 0.18em;
+      margin-bottom: 10px;
+      font-weight: 800;
+    }
 
-.footer{
-margin-top:60px;
-color:#999;
-font-size:14px;
-}
+    .summary-title {
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 8px;
+    }
 
-</style>
+    .summary-text {
+      color: var(--muted);
+      line-height: 1.6;
+      font-size: 16px;
+    }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin-top: 20px;
+    }
+
+    .review-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 26px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .review-card::before {
+      content: "“";
+      position: absolute;
+      top: 8px;
+      right: 18px;
+      font-size: 84px;
+      line-height: 1;
+      color: rgba(255, 90, 54, 0.08);
+      font-weight: 900;
+    }
+
+    .stars {
+      color: var(--accent);
+      font-size: 16px;
+      letter-spacing: 0.14em;
+      margin-bottom: 16px;
+      font-weight: 900;
+    }
+
+    .quote {
+      font-size: 17px;
+      line-height: 1.75;
+      margin: 0 0 18px;
+    }
+
+    .author {
+      font-size: 14px;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: 14px;
+      margin-top: 36px;
+    }
+
+    @media (max-width: 760px) {
+      .reviews-grid {
+        grid-template-columns: 1fr;
+      }
+
+      body {
+        padding: 30px 16px 40px;
+      }
+
+      .review-card,
+      .summary-card {
+        padding: 22px;
+      }
+    }
+  </style>
 </head>
-
 <body>
+  <div class="container">
+    <section class="hero">
+      <img src="bre2-logo.png" alt="BRE2 Logo" class="logo" />
+      <h1>BRE² Reviews</h1>
+      <p class="subtitle">
+        Why coworkers believe Breanna would be a strong Account Executive.
+      </p>
+    </section>
 
-<div class="container">
+    <section class="summary-card">
+      <div class="summary-stars">★★★★★</div>
+      <div class="summary-title">Highly rated by the people who work with her</div>
+      <div class="summary-text">
+        A simple collection of internal feedback on Breanna’s competitiveness, coachability,
+        business acumen, technical fluency, and ability to build trust.
+      </div>
+    </section>
 
-<h1>BRE² Reviews</h1>
-<p class="subtitle">Why colleagues believe Breanna would excel as an Account Executive</p>
+    <section class="reviews-grid">
+      <article class="review-card">
+        <div class="stars">★★★★★</div>
+        <p class="quote">
+          [Placeholder: Add a quote from a manager about Breanna’s performance, work ethic,
+          or why she would succeed in an AE role.]
+        </p>
+        <div class="author">— Name, Title</div>
+      </article>
 
-<div class="review">
-<div class="stars">★★★★★</div>
-<p class="quote">
-[PLACEHOLDER: Insert coworker quote about Breanna's work ethic, results, or leadership.]
-</p>
-<p class="author">— Manager Name, Title</p>
-</div>
+      <article class="review-card">
+        <div class="stars">★★★★★</div>
+        <p class="quote">
+          [Placeholder: Add a quote about Breanna’s competitiveness, drive, and ability
+          to rise to challenges.]
+        </p>
+        <div class="author">— Name, Title</div>
+      </article>
 
-<div class="review">
-<div class="stars">★★★★★</div>
-<p class="quote">
-[PLACEHOLDER: Insert coworker quote about Breanna's competitiveness and drive.]
-</p>
-<p class="author">— Coworker Name, Role</p>
-</div>
+      <article class="review-card">
+        <div class="stars">★★★★★</div>
+        <p class="quote">
+          [Placeholder: Add a quote about Breanna’s communication style, presence, or
+          ability to build relationships.]
+        </p>
+        <div class="author">— Name, Title</div>
+      </article>
 
-<div class="review">
-<div class="stars">★★★★★</div>
-<p class="quote">
-[PLACEHOLDER: Insert coworker quote about Breanna's ability to connect with prospects or build pipeline.]
-</p>
-<p class="author">— Team Member, Title</p>
-</div>
+      <article class="review-card">
+        <div class="stars">★★★★★</div>
+        <p class="quote">
+          [Placeholder: Add a quote about Breanna’s technical mindset and how it helps
+          her understand customers and business problems.]
+        </p>
+        <div class="author">— Name, Title</div>
+      </article>
 
-<div class="review">
-<div class="stars">★★★★★</div>
-<p class="quote">
-[PLACEHOLDER: Insert quote about Breanna's technical mindset and selling ability.]
-</p>
-<p class="author">— Leader, Title</p>
-</div>
+      <article class="review-card">
+        <div class="stars">★★★★★</div>
+        <p class="quote">
+          [Placeholder: Add a quote about Breanna’s ownership, initiative, and ability
+          to go beyond what is asked.]
+        </p>
+        <div class="author">— Name, Title</div>
+      </article>
 
-<div class="review">
-<div class="stars">★★★★★</div>
-<p class="quote">
-[PLACEHOLDER: Insert quote about Breanna's resilience, discipline, and athlete mindset.]
-</p>
-<p class="author">— Peer, Title</p>
-</div>
+      <article class="review-card">
+        <div class="stars">★★★★★</div>
+        <p class="quote">
+          [Placeholder: Add a quote about why Breanna specifically feels like a strong
+          fit for an AE seat.]
+        </p>
+        <div class="author">— Name, Title</div>
+      </article>
+    </section>
 
-<p class="footer">
-Built by Breanna Chi
-</p>
-
-</div>
-
+    <div class="footer">
+      Built by Breanna Chi
+    </div>
+  </div>
 </body>
 </html>
